@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: weather-api
+
+clients:
+  geocoding:
+    base-url: https://nominatim.openstreetmap.org
+  weather:
+    base-url: https://api.open-meteo.com
