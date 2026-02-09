@@ -100,6 +100,45 @@ curl -X GET http://localhost:8080/weather/90210
 
 ---
 
+## Error Handling
+
+The API uses standard HTTP status codes to indicate error scenarios.
+
+### Invalid ZIP Code
+
+If the provided ZIP code cannot be resolved by the geocoding service, the API returns:
+
+**HTTP 404 – Not Found**
+
+```json
+{
+  "code": "ZIP_CODE_NOT_FOUND",
+  "message": "Zip code not found: 99999"
+}
+```
+
+This error indicates an invalid or unsupported ZIP code provided by the client.
+
+---
+
+### External Weather Service Unavailable
+
+If the external weather service is unavailable or fails to respond, the API returns:
+
+**HTTP 503 – Service Unavailable**
+
+```json
+{
+  "code": "WEATHER_SERVICE_UNAVAILABLE",
+  "message": "Weather service is currently unavailable"
+}
+```
+
+This error indicates a temporary failure in an external dependency.
+
+
+---
+
 ## Configuration
 
 Configuration is defined in application.yml:
